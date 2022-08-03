@@ -18,7 +18,9 @@ if(app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+app.UseStaticFiles();       
 
+//app.UseAuthentication();    
 // App Routing
 app.UseRouting();
 app.UseEndpoints(endpoints =>
