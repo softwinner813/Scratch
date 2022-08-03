@@ -1,6 +1,10 @@
+using Scratch.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
+
+services.AddDbContext<InventoryContext>();
 
 // Use MVC
 services.AddMvc();
@@ -18,8 +22,9 @@ if(app.Environment.IsDevelopment())
 // App Routing
 app.UseRouting();
 app.UseEndpoints(endpoints =>
-{ 
-    endpoints.MapDefaultControllerRoute(); 
+{
+    //endpoints.MapDefaultControllerRoute(); 
+    endpoints.MapControllerRoute(name: "default", pattern: "{controller=Products}/{action=Index}/{id?}");
 });
 
 //app.MapGet("/", () => "Hello World!");
